@@ -7,14 +7,14 @@ app.use(express.static('public'));
 
 app.get("/", async function (req, res) {
   const listeMots = await Voc.loadMany();
-  res.render('listVoc.ejs', {listeMots});
+  const randomIndex = Math.floor(Math.random() * listeMots.length);
+  res.render('listVoc.ejs', {listeMots, randomIndex});
 });
 
 
 app.get("/ajout", async function (req, res) {
   const listeMots = await Voc.loadMany();
-  const randomIndex = Math.floor(Math.random() * listeMots.length);
-  res.render('ajout.ejs', {listeMots, randomIndex});
+  res.render('ajout.ejs', {listeMots});
 });
 
 
