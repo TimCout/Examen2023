@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/CSS/style.css">
+<h1>Vocabulary</h1>
+
+<table>
+    <tr>
+      <th>Word</th>
+      <th>Translation</th>
+      <th>Réussite</th>
+      <th>Action</th>
+    </tr>
+    <% for(vocabtable of listeMots) { %>
+      <tr>
+        <th><%= vocabtable.mot %></th>
+        <th><%= vocabtable.trad %></th>
+        <th><%= vocabtable.pourcentage %> %</th>
+        <th><a href="/delete/<%= vocabtable.id%>"> <input type="submit" name="delete" value="Delete" id = "button"/></a></th>
+      </tr>
+    <% } %>
+</table>
+
+<h1>Add a new Word</h1>
+
+<form action="/add" method="POST">
+    Word :
+    <input type="text" name="mot" value=""><br/>
+    Translation :
+    <input type="text" name="trad" min="0" value=""><br/>
+    <input type="submit" name="save" value="Submit"><br/>
+</form>

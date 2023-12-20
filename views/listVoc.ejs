@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/CSS/style.css">
+
+<h1>Test yourself</h1>
+
+<a href="/ajout" style="text-decoration: none;"> <input type="submit" name="ajout" value="Ajouter un mot" id = "button"/> </a>
+
+<!--<p>How do you say "%= vocabtable.mot %>" ?</p> -->
+
+<ul>
+  <% for(vocabtable of listeMots) { %>
+    <li> How do you say "<%= vocabtable.mot %>" ?</li>
+  <% } %>
+</ul>
+
+<!-- <form action="/rep/%= vocabtable.id %>" method="POST">
+  Your answer : <input name="trad" /> <input type="submit" value="Test" />
+</form> -->
+
+<!-- Your answer : <input name="trad" /> <a href="/rep/%= vocabtable.id %>"> <button>Submit</button> </a> -->
+Your answer : <input name="trad" /> <a href="/rep/<%= vocabtable.id %>"> <input type="submit" name="submit" value="Submit" id = "button"/></a>
